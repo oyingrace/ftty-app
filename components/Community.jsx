@@ -38,10 +38,10 @@ const Community = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logic for handling form submission would go here
-    alert("Thank you for joining our community!");
+    // Clear the email input field
+    e.target.elements.email.value = '';
   };
-
+  
   return (
     <section id="community" className="section-spacing relative overflow-hidden">
       {/* Background Elements */}
@@ -98,6 +98,7 @@ const Community = () => {
           <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4">
             <input 
               type="email" 
+              name="email"
               placeholder="Your email address" 
               className="bg-ftty-purple-darker text-white px-6 py-4 rounded-full flex-grow focus:outline-none focus:ring-2 focus:ring-ftty-orange"
               required

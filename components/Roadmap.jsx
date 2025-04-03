@@ -161,7 +161,7 @@ const Roadmap = () => {
             Join our community to stay updated on our progress.
           </p>
           <a 
-            href="#community" 
+            href="https://t.me/FattyPattyCoin" 
             className="inline-block mt-8 bg-transparent hover:bg-ftty-purple-light text-ftty-orange border border-ftty-orange px-8 py-3 rounded-full text-lg font-medium transition-all hover:border-ftty-orange-light"
           >
             Join Our Community
