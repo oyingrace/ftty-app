@@ -33,10 +33,10 @@ const Navbar = () => {
           <a href="#features" className="text-white hover:text-ftty-orange transition-colors">Features</a>
           <a href="#community" className="text-white hover:text-ftty-orange transition-colors">Community</a>
           <a href="#roadmap" className="text-white hover:text-ftty-orange transition-colors">Roadmap</a>
-{/*           <button className="bg-ftty-orange hover:bg-ftty-orange-light text-white px-6 py-2 rounded-full flex items-center gap-2 transition-all transform hover:scale-105">
+          <button className="bg-ftty-orange hover:bg-ftty-orange-light text-white px-6 py-2 rounded-full flex items-center gap-2 transition-all transform hover:scale-105">
             <FaWallet />
             Connect Wallet
-          </button> */}
+          </button>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -80,10 +80,10 @@ const Navbar = () => {
             >
               Roadmap
             </a>
-           {/*  <button className="bg-ftty-orange hover:bg-ftty-orange-light text-white px-6 py-2 rounded-full flex items-center justify-center gap-2 transition-all">
+           <button className="bg-ftty-orange hover:bg-ftty-orange-light text-white px-6 py-2 rounded-full flex items-center justify-center gap-2 transition-all">
               <FaWallet />
               Connect Wallet
-            </button> */}
+            </button>
           </div>
         </div>
       )}
