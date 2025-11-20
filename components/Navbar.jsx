@@ -2,7 +2,12 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { FaWallet, FaBars, FaTimes } from 'react-icons/fa';
-import "@reown/appkit-wallet-button/react";
+import { 
+  AppKitButton, 
+  AppKitConnectButton, 
+  AppKitAccountButton, 
+  AppKitNetworkButton 
+} from "@reown/appkit/react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,7 +40,7 @@ const Navbar = () => {
           <a href="#community" className="text-white hover:text-ftty-orange transition-colors">Community</a>
           <a href="#roadmap" className="text-white hover:text-ftty-orange transition-colors">Roadmap</a>
           <button className="bg-ftty-orange hover:bg-ftty-orange-light text-white px-6 py-2 rounded-full flex items-center gap-2 transition-all transform hover:scale-105">
-          <appkit-wallet-button/>
+          <AppKitConnectButton />
           </button>
         </nav>
 
