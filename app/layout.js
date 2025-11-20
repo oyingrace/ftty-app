@@ -10,15 +10,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <AppKitProvider
-      projectId="5acef91d7967e48a748a4a68f1cb790c"
-      networks={[
-      ]}
-    >
       <body>
-        {children}
+        <AppKitProvider
+          projectId="5acef91d7967e48a748a4a68f1cb790c"
+          networks={[
+          ]}
+        >
+          {children}
+        </AppKitProvider>
       </body>
-      </AppKitProvider>
     </html>
   );
 }
