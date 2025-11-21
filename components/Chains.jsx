@@ -145,6 +145,12 @@ const Chains = () => {
 
   const chains = [
     {
+      name: "Ethereum",
+      icon: <FaEthereum />,
+      isPaired: false,
+      color: "text-blue-500"
+    },
+    {
       name: "Polygon",
       icon: <SiPolygon />,
       isPaired: false,
@@ -157,12 +163,6 @@ const Chains = () => {
       isPaired: false,
       contractAddress: "0x68f1e54aedb8F42d2D73AD48E2A56F7914bB79B6",
       color: "text-yellow-500"
-    },
-    {
-      name: "Ethereum",
-      icon: <FaEthereum />,
-      isPaired: false,
-      color: "text-blue-500"
     },
     {
       name: "Solana",
