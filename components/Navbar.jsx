@@ -82,10 +82,7 @@ const Navbar = () => {
             >
               Roadmap
             </a>
-           <button className="bg-ftty-orange hover:bg-ftty-orange-light text-white px-6 py-2 rounded-full flex items-center justify-center gap-2 transition-all">
-              <FaWallet />
-              Connect Wallet
-            </button>
+          
           </div>
         </div>
       )}
