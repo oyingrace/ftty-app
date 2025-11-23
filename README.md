@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FTTY - Gaming Assets Crypto Marketplace
 
-## Getting Started
+A next-generation platform for buying, selling, and trading in-game assets using cryptocurrency. FTTY provides a secure, fast, and commission-free marketplace for gaming assets powered by blockchain technology.
 
-First, run the development server:
+## 🎮 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+FTTY is a decentralized marketplace that enables gamers to trade in-game assets across multiple games using the FTTY token. The platform emphasizes security, speed, and zero commission fees, making it an attractive solution for the gaming economy.
+
+## ✨ Features
+
+- **Secure Transactions**: All transactions are secured by blockchain technology, ensuring safety and transparency
+- **Lightning Fast**: Near-instant transactions with optimized blockchain integration
+- **Zero Commissions**: Trade without any hidden fees - 0% commission on all transactions
+- **Self-Custody**: Keep full control of your assets with self-custody solution
+- **Cross-Game Trading**: Trade assets between supported games
+- **Multi-Chain Support**: Works across multiple blockchains including Ethereum, Polygon, Arbitrum, Optimism, Base, and Sepolia
+- **Wallet Integration**: Seamless wallet connection via Reown AppKit (WalletConnect)
+- **Featured Assets**: Browse and discover popular gaming assets
+- **Responsive Design**: Modern, mobile-friendly UI with smooth animations
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 14](https://nextjs.org/) (React 18)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Blockchain**: 
+  - [Wagmi](https://wagmi.sh/) - React Hooks for Ethereum
+  - [Viem](https://viem.sh/) - TypeScript Ethereum library
+  - [Reown AppKit](https://reown.com/appkit) (formerly WalletConnect) - Wallet connection
+- **Data Fetching**: [TanStack Query](https://tanstack.com/query) (React Query)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+
+## 📋 Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd ftty-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+
+3. **Set up environment variables** (if needed)
+   
+   The project uses a Reown (WalletConnect) project ID. The current project ID is configured in `config/wagmi.js`. If you need to use your own:
+   - Get a project ID from [Reown Cloud](https://cloud.reown.com)
+   - Update `config/wagmi.js` with your project ID
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+
+5. **Open your browser**
+   
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+## 📁 Project Structure
+
+```
+ftty-app/
+├── app/                    # Next.js app directory
+│   ├── layout.js          # Root layout with providers
+│   ├── page.js            # Home page
+│   ├── globals.css        # Global styles
+│   └── fonts/             # Custom fonts
+├── components/             # React components
+│   ├── Navbar.jsx         # Navigation bar with wallet connection
+│   ├── Hero.jsx           # Hero section
+│   ├── Features.jsx       # Features showcase
+│   ├── FeaturedAssets.jsx # Featured gaming assets
+│   ├── Chains.jsx         # Supported blockchain networks
+│   ├── Community.jsx      # Community section
+│   ├── Roadmap.jsx        # Roadmap section
+│   ├── Footer.jsx         # Footer component
+│   └── Providers.jsx      # React Query & Wagmi providers
+├── config/                # Configuration files
+│   └── wagmi.js           # Wagmi and blockchain configuration
+├── public/                # Static assets
+│   ├── helmet.jpeg
+│   ├── staff.jpeg
+│   ├── sword.jpg
+│   └── whitepaper.pdf
+├── tailwind.config.js     # Tailwind CSS configuration
+├── next.config.mjs        # Next.js configuration
+└── package.json           # Dependencies and scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Customization
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Colors
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The project uses a custom color scheme defined in `tailwind.config.js`:
+- **Primary Orange**: `#FF7A00` (ftty-orange)
+- **Dark Purple**: `#1A0D2C` (ftty-purple-dark)
+- **Darker Purple**: `#110820` (ftty-purple-darker)
 
-## Learn More
+You can customize these colors in the Tailwind configuration file.
 
-To learn more about Next.js, take a look at the following resources:
+### Supported Chains
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Currently configured chains can be modified in `config/wagmi.js`:
+- Ethereum Mainnet
+- Arbitrum
+- Polygon
+- Optimism
+- Base
+- Sepolia (Testnet)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 📜 Available Scripts
 
-## Deploy on Vercel
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔗 Blockchain Networks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The application supports multiple blockchain networks:
+- **Ethereum**: Mainnet and Sepolia testnet
+- **Arbitrum**: Layer 2 scaling solution
+- **Polygon**: Multi-chain ecosystem
+- **Optimism**: Optimistic rollup
+- **Base**: Coinbase's Layer 2
+
+Users can connect their wallets and switch between supported networks seamlessly.
+
+## 🔐 Wallet Connection
+
+The app uses Reown AppKit (formerly WalletConnect) for wallet connections, supporting:
+- MetaMask
+- WalletConnect
+- Coinbase Wallet
+- And many other popular wallets
+
+## 📄 Whitepaper
+
+A whitepaper is available at `/public/whitepaper.pdf` and can be accessed via the "Whitepaper" button in the hero section.
+
+## 🚧 Development Status
+
+This project is currently in development. Features and functionality may change.
+
+## 📝 License
+
+This project is private and proprietary.
+
+## 🤝 Contributing
+
+This is a private project. For questions or support, please contact the project maintainers.
+
+## 📞 Support
+
+For issues, questions, or support, please refer to the project documentation or contact the development team.
+
+---
+
+Built with ❤️ using Next.js and Web3 technologies
