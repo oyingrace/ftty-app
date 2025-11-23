@@ -172,7 +172,7 @@ const FeaturedAssets = () => {
         className="container mx-auto px-4 transition duration-1000 opacity-0"
       >
         <div className="text-center mb-16">
-          <span className="text-ftty-orange font-medium">Marketplace</span>
+         
           <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-6">Featured Assets</h2>
           <p className="text-gray-300 max-w-3xl mx-auto">
             Discover the most popular and valuable gaming assets available on the FTTY marketplace.
