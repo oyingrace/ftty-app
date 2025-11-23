@@ -135,7 +135,7 @@ const FeaturedAssets = () => {
     {
       id: '1',
       name: 'Legendary Dragon Sword',
-      image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2Fpinterest--49469295902585317%2F&psig=AOvVaw2dU7iy5KuzQ6jZ7VoKw_mL&ust=1763993778821000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKCyv4y7iJEDFQAAAAAdAAAAABAE?w=400&h=400&fit=crop',
+      image: '',
       floorPrice: '0.45',
       topOffer: '0.52',
       volume: '12.5',
