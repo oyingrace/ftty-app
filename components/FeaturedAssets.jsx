@@ -135,7 +135,7 @@ const FeaturedAssets = () => {
     {
       id: '1',
       name: 'Legendary Dragon Sword',
-      image: '',
+      image: '/sword.jpeg',
       floorPrice: '0.45',
       topOffer: '0.52',
       volume: '12.5',
