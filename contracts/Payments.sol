@@ -16,7 +16,7 @@ contract Payments is Ownable, ReentrancyGuard, Pausable {
     uint256 public platformFeeBps;
     address public feeCollector;
 
-    event Received(address indexed from, uint256 amount, string indexed reference);
+   event Received(address indexed from, uint256 amount, string indexed reference);
     event PaymentScheduled(address indexed from, address indexed to, uint256 amount, string indexed reference);
     event Withdrawn(address indexed recipient, uint256 amount);
     event ERC20Withdrawn(address indexed token, address indexed recipient, uint256 amount);
@@ -142,3 +142,4 @@ function setFeeCollector(address collector) external onlyOwner {
         (bool ok, ) = payable(feeCollector).call{value: fee}("");
         require(ok, "fee transfer failed");
     }
+}
