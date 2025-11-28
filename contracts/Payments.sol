@@ -36,3 +36,18 @@ constructor(address _feeCollector, uint256 _platformFeeBps) {
         emit Received(msg.sender, msg.value, "");
         // Keep funds in contract for later scheduling/withdraw or manual distribution
     }
+
+    /// @notice Send a payment to an address. Payment is credited to recipient's pendingWithdrawals.
+    /// @param recipient recipient address
+    /// @param reference optional description/reference
+    function payTo(address recipient, string calldata reference) external payable whenNotPaused nonReentrant {
+        require(msg.value > 0, "no value");
+        require(recipient != address(0), "invalid recipient");
+
+        uint256 fee = _takePlatformFee(msg.value);
+        uint256 net = msg.value - fee;
+
+        pendingWithdrawals[recipient] += net;
+
+        emit PaymentScheduled(msg.sender, recipient, net, reference);
+    }
