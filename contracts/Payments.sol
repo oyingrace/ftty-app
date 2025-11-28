@@ -83,3 +83,15 @@ constructor(address _feeCollector, uint256 _platformFeeBps) {
         // We keep a simple mapping for ERC20 pending balances by token+address in more advanced implementations.
         revert("use ownerCreditERC20 pattern or extend contract");
     }
+
+    /// @notice Owner can credit ERC20 tokens to a recipient (pull pattern).
+    function ownerCreditERC20(IERC20 token, address recipient, uint256 amount, string calldata reference) external onlyOwner whenNotPaused {
+        require(recipient != address(0), "invalid recipient");
+        require(amount > 0, "invalid amount");
+
+        // The owner must have transferred tokens to this contract prior to calling
+        // or this function could be combined to pull tokens from owner via allowance.
+        // For simplicity, we track token balances off-chain or extend mapping per token.
+        // (Implementation note provided below)
+        revert("implement token bookkeeping if you need ERC20 pull-payments");
+    }
