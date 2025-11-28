@@ -51,3 +51,16 @@ constructor(address _feeCollector, uint256 _platformFeeBps) {
 
         emit PaymentScheduled(msg.sender, recipient, net, reference);
     }
+
+     /// @notice Schedule a payment on behalf of the contract owner (owner-funded payout)
+    function ownerCredit(address recipient, uint256 amount, string calldata reference) external onlyOwner whenNotPaused {
+        require(recipient != address(0), "invalid recipient");
+        require(address(this).balance >= amount, "insufficient contract balance");
+
+        uint256 fee = _takePlatformFee(amount);
+        uint256 net = amount - fee;
+
+        pendingWithdrawals[recipient] += net;
+
+        emit PaymentScheduled(msg.sender, recipient, net, reference);
+    }
