@@ -31,3 +31,8 @@ constructor(address _feeCollector, uint256 _platformFeeBps) {
         platformFeeBps = _platformFeeBps;
     }
 
+// Allow contract to receive ETH directly
+    receive() external payable {
+        emit Received(msg.sender, msg.value, "");
+        // Keep funds in contract for later scheduling/withdraw or manual distribution
+    }
