@@ -64,3 +64,15 @@ constructor(address _feeCollector, uint256 _platformFeeBps) {
 
         emit PaymentScheduled(msg.sender, recipient, net, reference);
     }
+
+    /// @notice Withdraw accumulated ETH owed to sender
+    function withdraw() external nonReentrant whenNotPaused {
+        uint256 amount = pendingWithdrawals[msg.sender];
+        require(amount > 0, "nothing to withdraw");
+
+        pendingWithdrawals[msg.sender] = 0;
+        (bool sent, ) = payable(msg.sender).call{value: amount}("");
+        require(sent, "transfer failed");
+
+        emit Withdrawn(msg.sender, amount);
+    }
