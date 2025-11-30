@@ -50,3 +50,10 @@ contract SimpleMintNFT is ERC721Enumerable, Ownable, ReentrancyGuard {
     ) ERC721(name_, symbol_) {
         hiddenMetadataURI = hiddenURI_;
     }
+
+      // ----------- MINTING -----------
+
+    /**
+     * @notice Public payable mint.
+     * @param quantity Number of tokens to mint
+     */
