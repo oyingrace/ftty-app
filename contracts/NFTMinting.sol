@@ -20,4 +20,8 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 contract SimpleMintNFT is ERC721Enumerable, Ownable, ReentrancyGuard {
     using Strings for uint256;
 
-   
+   // Configurable parameters
+    uint256 public constant MAX_SUPPLY = 10000;         // total NFTs
+    uint256 public maxPerWallet = 5;                   // default per-wallet limit
+    uint256 public mintPrice = 0.05 ether;             // default price per mint
+    bool    public saleIsActive = false;
