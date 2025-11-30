@@ -26,6 +26,9 @@ FTTY is a decentralized marketplace that enables gamers to trade in-game assets 
   - [Wagmi](https://wagmi.sh/) - React Hooks for Ethereum
   - [Viem](https://viem.sh/) - TypeScript Ethereum library
   - [Reown AppKit](https://reown.com/appkit) (formerly WalletConnect) - Wallet connection
+- **Smart Contracts**: 
+  - [OpenZeppelin Contracts](https://openzeppelin.com/contracts/) - Secure smart contract libraries
+  - Solidity ^0.8.19/^0.8.20
 - **Data Fetching**: [TanStack Query](https://tanstack.com/query) (React Query)
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
 
@@ -91,6 +94,9 @@ ftty-app/
 │   └── Providers.jsx      # React Query & Wagmi providers
 ├── config/                # Configuration files
 │   └── wagmi.js           # Wagmi and blockchain configuration
+├── contracts/             # Smart contracts
+│   ├── NFTMinting.sol     # ERC721 NFT minting contract
+│   └── Payments.sol       # Payment processing contract with platform fees
 ├── public/                # Static assets
 │   ├── helmet.jpeg
 │   ├── staff.jpeg
@@ -151,6 +157,51 @@ The app uses Reown AppKit (formerly WalletConnect) for wallet connections, suppo
 ## 📄 Whitepaper
 
 A whitepaper is available at `/public/whitepaper.pdf` and can be accessed via the "Whitepaper" button in the hero section.
+
+## Smart Contracts
+
+The project includes two Solidity smart contracts for core marketplace functionality:
+
+### NFTMinting.sol (SimpleMintNFT)
+
+An ERC721 NFT minting contract built with OpenZeppelin libraries:
+
+- **Features**:
+  - ERC721Enumerable for easy token enumeration
+  - Ownable for admin controls
+  - ReentrancyGuard for secure withdrawals
+  - Configurable supply limits (max 10,000 tokens)
+  - Per-wallet minting limits
+  - Revealable metadata with hidden URI support
+  - Sale activation controls
+
+- **Key Parameters**:
+  - `MAX_SUPPLY`: 10,000 total NFTs
+  - `maxPerWallet`: 5 NFTs per wallet (configurable)
+  - `mintPrice`: 0.05 ETH per mint (configurable)
+  - `saleIsActive`: Public sale toggle
+
+### Payments.sol
+
+A secure payment processing contract for marketplace transactions:
+
+- **Features**:
+  - Pull-pattern withdrawals for recipients
+  - Configurable platform fees (basis points)
+  - Pausable for emergency stops
+  - ReentrancyGuard protection
+  - Ownable admin controls
+  - Support for ETH payments
+  - Event logging for all transactions
+
+- **Key Functions**:
+  - `payTo()`: Send payment to a recipient (with platform fee)
+  - `withdraw()`: Recipients withdraw their accumulated balance
+  - `ownerCredit()`: Owner can credit funds to recipients
+  - `setPlatformFeeBps()`: Configure platform fee percentage
+  - `pause()`/`unpause()`: Emergency controls
+
+Both contracts use OpenZeppelin's battle-tested security libraries and follow best practices for secure smart contract development.
 
 ## 🚧 Development Status
 
