@@ -42,3 +42,11 @@ contract SimpleMintNFT is ERC721Enumerable, Ownable, ReentrancyGuard {
      event Revealed(bool revealed);
     event SaleToggled(bool active);
     event Withdrawn(address indexed to, uint256 amount);
+
+    constructor(
+        string memory name_,
+        string memory symbol_,
+        string memory hiddenURI_
+    ) ERC721(name_, symbol_) {
+        hiddenMetadataURI = hiddenURI_;
+    }
