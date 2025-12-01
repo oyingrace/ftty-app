@@ -136,3 +136,12 @@ contract SimpleMintNFT is ERC721Enumerable, Ownable, ReentrancyGuard {
         saleIsActive = !saleIsActive;
         emit SaleToggled(saleIsActive);
     }
+
+      // Withdraw contract balance to owner
+    function withdraw(address payable to) external onlyOwner nonReentrant {
+        uint256 balance = address(this).balance;
+        require(balance > 0, "No funds");
+        (bool success, ) = to.call{value: balance}("");
+        require(success, "Withdraw failed");
+        emit Withdrawn(to, balance);
+    }
