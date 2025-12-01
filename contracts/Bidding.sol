@@ -106,3 +106,8 @@ function acceptOffer(uint256 offerId)
             IERC721(o.nft).ownerOf(o.tokenId) == msg.sender,
             "Not NFT owner"
         );
+        // Ensure contract is approved to move NFT
+        require(
+            IERC721(o.nft).isApprovedForAll(msg.sender, address(this)),
+            "Marketplace not approved"
+        );
