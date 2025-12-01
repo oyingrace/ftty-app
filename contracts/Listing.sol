@@ -83,3 +83,12 @@ function setPlatformFee(uint256 newFeePercent) external onlyRole(MARKET_ADMIN) {
             IERC721(nft).isApprovedForAll(msg.sender, address(this)),
             "Marketplace not approved"
         );
+
+        listingCounter++;
+        listings[listingCounter] = Listing(
+            msg.sender,
+            nft,
+            tokenId,
+            price,
+            true
+        );
