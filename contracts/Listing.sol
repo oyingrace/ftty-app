@@ -68,3 +68,11 @@ function setPlatformFee(uint256 newFeePercent) external onlyRole(MARKET_ADMIN) {
     function setFeeReceiver(address newReceiver) external onlyRole(MARKET_ADMIN) {
         feeReceiver = newReceiver;
     }
+
+    // --------------------------------------------------------
+    // LISTING
+    // --------------------------------------------------------
+
+    function createListing(address nft, uint256 tokenId, uint256 price)
+        external
+        returns (uint256)
