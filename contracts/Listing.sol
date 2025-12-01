@@ -127,3 +127,5 @@ function setPlatformFee(uint256 newFeePercent) external onlyRole(MARKET_ADMIN) {
          // Pay seller
         payable(l.seller).transfer(sellerAmount);
 
+// Pay platform
+        payable(feeReceiver).transfer(fee);
