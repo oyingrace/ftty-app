@@ -74,3 +74,6 @@ pragma solidity ^0.8.19;
         require(o.active, "Offer inactive");
         require(o.offerer == msg.sender, "Not offer owner");
         require(msg.value > 0, "Increase must be > 0");
+         o.amount += msg.value;
+        emit OfferUpdated(offerId, o.amount);
+    }
