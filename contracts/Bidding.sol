@@ -37,3 +37,15 @@ pragma solidity ^0.8.19;
         payable
         nonReentrant
         returns (uint256)
+
+         {
+        require(msg.value > 0, "Offer cannot be zero");
+
+        offerCounter++;
+        offers[offerCounter] = Offer(
+            msg.sender,
+            nft,
+            tokenId,
+            msg.value,
+            true
+        );
