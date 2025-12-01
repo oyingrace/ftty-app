@@ -70,3 +70,9 @@ contract GameItemNFT is ERC721URIStorage, AccessControl, Pausable {
         string memory uri = string(
             abi.encodePacked(baseTokenURI, tokenId.toString(), ".json")
         );
+
+          _setTokenURI(tokenId, uri);
+
+        emit ItemMinted(to, tokenId, uri);
+    }
+
