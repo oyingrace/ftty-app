@@ -123,3 +123,16 @@ contract SimpleMintNFT is ERC721Enumerable, Ownable, ReentrancyGuard {
         revealed = true;
         emit Revealed(true);
     }
+
+    function setMintPrice(uint256 newPrice) external onlyOwner {
+        mintPrice = newPrice;
+    }
+
+    function setMaxPerWallet(uint256 newMax) external onlyOwner {
+        maxPerWallet = newMax;
+    }
+
+    function toggleSale() external onlyOwner {
+        saleIsActive = !saleIsActive;
+        emit SaleToggled(saleIsActive);
+    }
