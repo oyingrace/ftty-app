@@ -62,3 +62,6 @@ contract GameItemNFT is ERC721URIStorage, AccessControl, Pausable {
 
          // Mint NFT
         _safeMint(to, tokenId);
+
+        // Set initial stats
+        itemStats[tokenId] = GameStats(level, power, rarity);
