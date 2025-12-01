@@ -56,4 +56,6 @@ contract GameItemNFT is ERC721URIStorage, AccessControl, Pausable {
         uint256 level,
         uint256 power,
         uint256 rarity
-    ) 
+    ) external onlyRole(GAME_ADMIN) whenNotPaused {
+        _tokenIdTracker.increment();
+        uint256 tokenId = _tokenIdTracker.current();
