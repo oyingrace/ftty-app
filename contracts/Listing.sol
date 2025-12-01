@@ -64,3 +64,7 @@ uint256 public platformFeePercent; // e.g., 250 = 2.5%
 function setPlatformFee(uint256 newFeePercent) external onlyRole(MARKET_ADMIN) {
         platformFeePercent = newFeePercent;
     }
+
+    function setFeeReceiver(address newReceiver) external onlyRole(MARKET_ADMIN) {
+        feeReceiver = newReceiver;
+    }
