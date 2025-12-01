@@ -39,3 +39,11 @@ contract RoyaltyManager is ERC2981, AccessControl {
         _setDefaultRoyalty(receiver, feeNumerator);
         emit DefaultRoyaltySet(receiver, feeNumerator);
     }
+
+    /**
+     * @notice Remove default royalty
+     */
+    function deleteDefaultRoyalty() external onlyRole(ROYALTY_ADMIN) {
+        _deleteDefaultRoyalty();
+        emit DefaultRoyaltyDeleted();
+    }
