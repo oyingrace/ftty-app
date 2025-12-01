@@ -28,3 +28,14 @@ contract RoyaltyManager is ERC2981, AccessControl {
         _grantRole(DEFAULT_ADMIN_ROLE, initialAdmin);
         _grantRole(ROYALTY_ADMIN, initialAdmin);
     }
+
+    /**
+     * @notice Set default royalty info (applies to all tokenIds that don't have specific royalty)
+     * @param receiver address to receive royalty
+     * @param feeNumerator royalty fraction in basis points (uses _feeDenominator())
+     */
+    function setDefaultRoyalty(address receiver, uint96 feeNumerator) external onlyRole(ROYALTY_ADMIN) {
+        require(receiver != address(0), "Invalid receiver");
+        _setDefaultRoyalty(receiver, feeNumerator);
+        emit DefaultRoyaltySet(receiver, feeNumerator);
+    }
