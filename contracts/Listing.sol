@@ -32,3 +32,19 @@ uint256 public platformFeePercent; // e.g., 250 = 2.5%
 
     uint256 public listingCounter = 0;
     mapping(uint256 => Listing> public listings;
+
+// Events
+    event ItemListed(
+        uint256 listingId,
+        address indexed seller,
+        address indexed nft,
+        uint256 indexed tokenId,
+        uint256 price
+    );
+
+ event ListingCancelled(uint256 listingId);
+    event ItemSold(
+        uint256 listingId,
+        address indexed buyer,
+        uint256 price
+    );
