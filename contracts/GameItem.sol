@@ -76,3 +76,15 @@ contract GameItemNFT is ERC721URIStorage, AccessControl, Pausable {
         emit ItemMinted(to, tokenId, uri);
     }
 
+    // -----------------------------
+    // Update Game Item Attributes
+    // -----------------------------
+function updateStats(
+        uint256 tokenId,
+        uint256 level,
+        uint256 power,
+        uint256 rarity
+    ) 
+
+
+
