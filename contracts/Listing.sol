@@ -123,3 +123,7 @@ function setPlatformFee(uint256 newFeePercent) external onlyRole(MARKET_ADMIN) {
         // Calculate platform fee
         uint256 fee = (msg.value * platformFeePercent) / 10000;
         uint256 sellerAmount = msg.value - fee;
+
+         // Pay seller
+        payable(l.seller).transfer(sellerAmount);
+
