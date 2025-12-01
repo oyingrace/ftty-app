@@ -125,3 +125,6 @@ function acceptOffer(uint256 offerId)
         // Transfer NFT to buyer
         IERC721(o.nft).safeTransferFrom(msg.sender, o.offerer, o.tokenId);
 
+emit OfferAccepted(offerId, msg.sender);
+    }
+}
