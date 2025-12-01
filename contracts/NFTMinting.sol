@@ -145,3 +145,10 @@ contract SimpleMintNFT is ERC721Enumerable, Ownable, ReentrancyGuard {
         require(success, "Withdraw failed");
         emit Withdrawn(to, balance);
     }
+
+    // ----------- OVERRIDES -----------
+
+    // Optional: allow receiving ETH directly (falls back to owner withdraw)
+    receive() external payable {}
+    fallback() external payable {}
+}
