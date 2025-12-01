@@ -11,4 +11,13 @@ pragma solidity ^0.8.19;
  * - Non-custodial NFT handling
  */
 
- 
+ // Events
+    event OfferCreated(
+        uint256 indexed offerId,
+        address indexed offerer,
+        address indexed nft,
+        uint256 tokenId,
+        uint256 amount
+    );
+
+    
