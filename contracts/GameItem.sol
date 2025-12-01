@@ -93,7 +93,18 @@ function updateStats(
 
         emit StatsUpdated(tokenId, level, power, rarity);
 
-        
+        }
+
+    // -----------------------------
+    // Metadata
+    // -----------------------------
+function setBaseURI(string calldata newBaseURI)
+        external
+        onlyRole(GAME_ADMIN)
+    {
+        baseTokenURI = newBaseURI;
+        emit BaseURIUpdated(newBaseURI);
+    }
 
 
 
