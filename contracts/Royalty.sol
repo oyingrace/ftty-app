@@ -22,3 +22,9 @@ contract RoyaltyManager is ERC2981, AccessControl {
     event DefaultRoyaltyDeleted();
     event TokenRoyaltySet(uint256 indexed tokenId, address indexed receiver, uint96 feeNumerator);
     event TokenRoyaltyReset(uint256 indexed tokenId);
+
+    constructor(address initialAdmin) {
+        require(initialAdmin != address(0), "Zero admin");
+        _grantRole(DEFAULT_ADMIN_ROLE, initialAdmin);
+        _grantRole(ROYALTY_ADMIN, initialAdmin);
+    }
