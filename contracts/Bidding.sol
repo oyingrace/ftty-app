@@ -77,3 +77,6 @@ pragma solidity ^0.8.19;
          o.amount += msg.value;
         emit OfferUpdated(offerId, o.amount);
     }
+    // ----------------------------------------
+    // Cancel Offer (refund)
+    // ----------------------------------------
