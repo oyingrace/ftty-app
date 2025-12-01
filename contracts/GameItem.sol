@@ -105,6 +105,10 @@ function setBaseURI(string calldata newBaseURI)
         baseTokenURI = newBaseURI;
         emit BaseURIUpdated(newBaseURI);
     }
+    // Optional override
+    function _baseURI() internal view override returns (string memory) {
+        return baseTokenURI;
+    }
 
 
 
