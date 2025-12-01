@@ -57,3 +57,10 @@ pragma solidity ^0.8.19;
             tokenId,
             msg.value
         );
+
+        return offerCounter;
+    }
+
+    // ----------------------------------------
+    // Update Offer (add more ETH)
+    // ----------------------------------------
