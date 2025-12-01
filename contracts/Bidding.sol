@@ -84,3 +84,6 @@ pragma solidity ^0.8.19;
         external
         nonReentrant
     {
+        Offer storage o = offers[offerId];
+        require(o.active, "Offer inactive");
+        require(o.offerer == msg.sender, "Not offer owner");
