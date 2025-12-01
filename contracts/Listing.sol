@@ -76,3 +76,10 @@ function setPlatformFee(uint256 newFeePercent) external onlyRole(MARKET_ADMIN) {
     function createListing(address nft, uint256 tokenId, uint256 price)
         external
         returns (uint256)
+        {
+        require(price > 0, "Price must be > 0");
+        require(IERC721(nft).ownerOf(tokenId) == msg.sender, "Not owner");
+        require(
+            IERC721(nft).isApprovedForAll(msg.sender, address(this)),
+            "Marketplace not approved"
+        );
