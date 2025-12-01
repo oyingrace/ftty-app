@@ -103,3 +103,7 @@ contract SimpleMintNFT is ERC721Enumerable, Ownable, ReentrancyGuard {
         if (!revealed) {
             return hiddenMetadataURI;
         }
+
+         string memory base = baseTokenURI;
+        return bytes(base).length > 0 ? string(abi.encodePacked(base, tokenId.toString(), ".json")) : "";
+    }
