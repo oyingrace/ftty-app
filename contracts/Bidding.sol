@@ -121,3 +121,7 @@ function acceptOffer(uint256 offerId)
 
          // Pay platform
         payable(feeReceiver).transfer(fee);
+
+        // Transfer NFT to buyer
+        IERC721(o.nft).safeTransferFrom(msg.sender, o.offerer, o.tokenId);
+
