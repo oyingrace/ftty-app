@@ -12,4 +12,13 @@ pragma solidity ^0.8.19;
  *   e.g., feeNumerator = 500 => 5.00%
  */
 
- 
+ import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/token/common/ERC2981.sol";
+
+contract RoyaltyManager is ERC2981, AccessControl {
+    bytes32 public constant ROYALTY_ADMIN = keccak256("ROYALTY_ADMIN");
+
+    event DefaultRoyaltySet(address indexed receiver, uint96 feeNumerator);
+    event DefaultRoyaltyDeleted();
+    event TokenRoyaltySet(uint256 indexed tokenId, address indexed receiver, uint96 feeNumerator);
+    event TokenRoyaltyReset(uint256 indexed tokenId);
