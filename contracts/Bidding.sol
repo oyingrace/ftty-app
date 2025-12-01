@@ -23,3 +23,7 @@ pragma solidity ^0.8.19;
      function setPlatformFee(uint256 newFeePercent) external onlyRole(MARKET_ADMIN) {
         platformFeePercent = newFeePercent;
     }
+
+    function setFeeReceiver(address newReceiver) external onlyRole(MARKET_ADMIN) {
+        feeReceiver = newReceiver;
+    }
