@@ -11,3 +11,7 @@ pragma solidity ^0.8.19;
 * - Safe NFT transfers
 * - Reentrancy protection
 */
+
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
