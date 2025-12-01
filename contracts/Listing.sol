@@ -108,3 +108,9 @@ function setPlatformFee(uint256 newFeePercent) external onlyRole(MARKET_ADMIN) {
 
         emit ListingCancelled(listingId);
     }
+     // --------------------------------------------------------
+    // BUY NFT
+    // --------------------------------------------------------
+
+    function buyItem(uint256 listingId) external payable nonReentrant {
+        Listing storage l = listings[listingId];
