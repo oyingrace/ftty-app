@@ -15,3 +15,17 @@ pragma solidity ^0.8.19;
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+
+contract NFTMarketplace is ReentrancyGuard, AccessControl {
+    bytes32 public constant MARKET_ADMIN = keccak256("MARKET_ADMIN");
+
+uint256 public platformFeePercent; // e.g., 250 = 2.5%
+    address public feeReceiver;
+
+    struct Listing {
+        address seller;
+        address nft;
+        uint256 tokenId;
+        uint256 price;
+        bool active;
+    }
