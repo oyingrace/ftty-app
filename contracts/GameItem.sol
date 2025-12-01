@@ -110,5 +110,17 @@ function setBaseURI(string calldata newBaseURI)
         return baseTokenURI;
     }
 
+    // -----------------------------
+    // Pausable Controls
+    // -----------------------------
+
+    function pause() external onlyRole(GAME_ADMIN) {
+        _pause();
+    }
+
+    function unpause() external onlyRole(GAME_ADMIN) {
+        _unpause();
+    }
+
 
 
