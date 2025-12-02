@@ -47,3 +47,14 @@ contract RoyaltyManager is ERC2981, AccessControl {
         _deleteDefaultRoyalty();
         emit DefaultRoyaltyDeleted();
     }
+
+    /**
+     * @notice Set royalty for a specific tokenId (overrides default)
+     * @param tokenId token id to set royalty for
+     * @param receiver address to receive royalty
+     * @param feeNumerator royalty fraction in basis points
+     */
+     function setTokenRoyalty(
+        uint256 tokenId,
+        address receiver,
+        uint96 feeNumerator
