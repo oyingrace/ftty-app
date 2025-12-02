@@ -63,3 +63,19 @@ contract RoyaltyManager is ERC2981, AccessControl {
         _setTokenRoyalty(tokenId, receiver, feeNumerator);
         emit TokenRoyaltySet(tokenId, receiver, feeNumerator);
     }
+    /**
+     * @notice Reset token royalty to default (removes token-specific royalty)
+     * @param tokenId token id to reset
+     */
+    function resetTokenRoyalty(uint256 tokenId) external onlyRole(ROYALTY_ADMIN) {
+        _resetTokenRoyalty(tokenId);
+        emit TokenRoyaltyReset(tokenId);
+    }
+    /**
+     * @notice Change or grant ROYALTY_ADMIN role to another address
+     * Only DEFAULT_ADMIN_ROLE can grant/revoke roles (inherited from AccessControl)
+     */
+
+    /**
+     * @notice Override supportsInterface to include ERC2981 & AccessControl
+     */
