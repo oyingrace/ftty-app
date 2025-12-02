@@ -12,7 +12,7 @@ pragma solidity ^0.8.19;
  *   e.g., feeNumerator = 500 => 5.00%
  */
 
- import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/common/ERC2981.sol";
 
 contract RoyaltyManager is ERC2981, AccessControl {
