@@ -43,4 +43,7 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
         bool settled;
     }
 
+    // auctionId => Auction
+    mapping(uint256 => Auction) public auctions;
+
 
