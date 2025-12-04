@@ -46,4 +46,7 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
     // auctionId => Auction
     mapping(uint256 => Auction) public auctions;
 
+    // bidder => amount available to withdraw (refunds)
+    mapping(address => uint256) public pendingReturns;
+
 
