@@ -84,5 +84,10 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
          _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(ADMIN_ROLE, msg.sender);
 
+         platformFeeRecipient = _platformFeeRecipient;
+        platformFeeBps = _platformFeeBps;
+    }
+
+
 
 
