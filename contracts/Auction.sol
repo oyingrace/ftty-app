@@ -92,6 +92,10 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
     // ADMIN FUNCTIONS
     // -----------------------
 
+ function setPlatformFeeRecipient(address _recipient) external onlyRole(ADMIN_ROLE) {
+        require(_recipient != address(0), "Invalid address");
+        platformFeeRecipient = _recipient;
+    }
 
 
 
