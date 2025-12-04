@@ -22,4 +22,8 @@ import "@openzeppelin/contracts/token/common/ERC2981.sol";
 contract AuctionHouse is ReentrancyGuard, AccessControl {
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
 
+     // Platform fee (basis points). 10000 bps = 100%
+    uint96 public platformFeeBps;
+    address public platformFeeRecipient;
+
 
