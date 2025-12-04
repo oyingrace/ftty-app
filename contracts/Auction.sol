@@ -125,7 +125,13 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
         uint256 reservePrice,
         uint256 startTime,
         uint256 endTime
-    ) 
+    ) external returns (uint256) {
+        require(nft != address(0), "Invalid NFT");
+        require(endTime > startTime, "end must be > start");
+        require(IERC721(nft).ownerOf(tokenId) == msg.sender, "Not token owner");
+        // marketplace doesn't take custody; seller must approve this contract to transfer on settlement
+        // ownerOf check above ensures token exists and msg.sender is owner.
+
 
 
 
