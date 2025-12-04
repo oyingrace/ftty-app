@@ -97,6 +97,12 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
         platformFeeRecipient = _recipient;
     }
 
+    function setPlatformFeeBps(uint96 _bps) external onlyRole(ADMIN_ROLE) {
+        require(_bps <= 10000, "Bps > 10000");
+        platformFeeBps = _bps;
+    }
+
+
 
 
 
