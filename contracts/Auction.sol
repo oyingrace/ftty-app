@@ -172,6 +172,15 @@ auctionCount++;
          address previousHighest = a.highestBidder;
         uint256 previousHighestBid = a.highestBid;
 
+        // record new highest
+        a.highestBidder = msg.sender;
+        a.highestBid = msg.value;
+
+        // push refund to previous highest (pull pattern)
+        if (previousHighest != address(0)) {
+            pendingReturns[previousHighest] += previousHighestBid;
+        }
+
 
 
 
