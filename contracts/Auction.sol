@@ -110,6 +110,15 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
     // CREATE AUCTION
     // -----------------------
 
+    /**
+     * @notice Create an auction for an ERC-721 token. Seller must approve this contract.
+     * @param nft Address of ERC-721 contract
+     * @param tokenId Token ID to auction
+     * @param reservePrice Minimum required price (in wei)
+     * @param startTime Auction start time (unix). Use block.timestamp to start immediately.
+     * @param endTime Auction end time (unix). Must be > startTime.
+     */
+
 
 
 
