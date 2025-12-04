@@ -188,6 +188,14 @@ auctionCount++;
             newEndTime = a.endTime;
         }
 
+         emit BidPlaced(auctionId, msg.sender, msg.value, previousHighest, previousHighestBid, newEndTime);
+    }
+
+    // -----------------------
+    // WITHDRAW REFUNDS
+    // -----------------------
+
+
 
 
 
