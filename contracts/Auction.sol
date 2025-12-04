@@ -144,6 +144,10 @@ auctionCount++;
             settled: false
         });
 
+        emit AuctionCreated(auctionCount, msg.sender, nft, tokenId, reservePrice, startTime, endTime);
+        return auctionCount;
+    }
+
 
 
 
