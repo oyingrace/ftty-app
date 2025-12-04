@@ -102,6 +102,10 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
         platformFeeBps = _bps;
     }
 
+    function setTimeBuffer(uint256 _timeBuffer) external onlyRole(ADMIN_ROLE) {
+        timeBuffer = _timeBuffer;
+    }
+
 
 
 
