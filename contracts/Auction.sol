@@ -106,6 +106,10 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
         timeBuffer = _timeBuffer;
     }
 
+     // -----------------------
+    // CREATE AUCTION
+    // -----------------------
+
 
 
 
