@@ -119,6 +119,14 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
      * @param endTime Auction end time (unix). Must be > startTime.
      */
 
+      function createAuction(
+        address nft,
+        uint256 tokenId,
+        uint256 reservePrice,
+        uint256 startTime,
+        uint256 endTime
+    ) 
+
 
 
 
