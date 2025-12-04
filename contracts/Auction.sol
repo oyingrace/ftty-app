@@ -81,5 +81,8 @@ contract AuctionHouse is ReentrancyGuard, AccessControl {
         require(_platformFeeRecipient != address(0), "Invalid fee recipient");
         require(_platformFeeBps <= 10000, "Bps > 10000");
 
+         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(ADMIN_ROLE, msg.sender);
+
 
 
