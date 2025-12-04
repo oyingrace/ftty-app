@@ -163,6 +163,10 @@ auctionCount++;
         require(block.timestamp < a.endTime, "Auction ended");
         require(msg.value > 0, "Must send ETH");
 
+        uint256 minBid = a.highestBid == 0 ? a.reservePrice : (a.highestBid + ((a.highestBid * 5) / 100)); 
+        // enforced min increment: if first bid, must meet reservePrice; afterwards require +5% increase
+        // adjust increment logic as needed
+
 
 
 
