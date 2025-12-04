@@ -167,6 +167,12 @@ auctionCount++;
         // enforced min increment: if first bid, must meet reservePrice; afterwards require +5% increase
         // adjust increment logic as needed
 
+         require(msg.value >= minBid, "Bid too low");
+
+         address previousHighest = a.highestBidder;
+        uint256 previousHighestBid = a.highestBid;
+
+
 
 
 
