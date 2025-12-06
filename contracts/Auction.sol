@@ -246,6 +246,10 @@ auctionCount++;
               uint256 totalAmount = a.highestBid;
         address winner = a.highestBidder;
 
+        // Calculate platform fee
+        uint256 platformFee = (totalAmount * platformFeeBps) / 10000;
+
+
 
 
 
