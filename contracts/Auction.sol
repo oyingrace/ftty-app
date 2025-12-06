@@ -195,6 +195,17 @@ auctionCount++;
     // WITHDRAW REFUNDS
     // -----------------------
 
+    /**
+     * @notice Withdraw funds that were outbid.
+     */
+    function withdrawRefund() external nonReentrant {
+        uint256 amount = pendingReturns[msg.sender];
+        require(amount > 0, "No funds to withdraw");
+        pendingReturns[msg.sender] = 0;
+        (bool sent, ) = payable(msg.sender).call{value: amount}("");
+        require(sent, "Withdraw failed");
+    }
+
 
 
 
