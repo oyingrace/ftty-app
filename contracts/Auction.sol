@@ -206,6 +206,23 @@ auctionCount++;
         require(sent, "Withdraw failed");
     }
 
+    // -----------------------
+    // CANCEL AUCTION
+    // -----------------------
+    /**
+     * @notice Seller can cancel an auction only if there are no bids.
+     */
+    function cancelAuction(uint256 auctionId) external nonReentrant {
+        Auction storage a = auctions[auctionId];
+        require(a.seller != address(0), "Auction does not exist");
+        require(msg.sender == a.seller || hasRole(ADMIN_ROLE, msg.sender), "Not seller/admin");
+        require(a.highestBidder == address(0), "Cannot cancel after bids");
+        require(!a.settled, "Already settled");
+
+        a.settled = true; // mark settled to prevent reuse
+        emit AuctionCancelled(auctionId);
+    }
+
 
 
 
