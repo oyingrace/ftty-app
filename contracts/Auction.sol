@@ -280,6 +280,12 @@ uint256 sellerProceeds = totalAmount - totalDeductions;
             require(rSent, "Royalty transfer failed");
         }
 
+        // Pay platform fee
+        if (platformFee > 0) {
+            (bool pSent, ) = payable(platformFeeRecipient).call{value: platformFee}("");
+            require(pSent, "Platform fee transfer failed");
+        }
+
 
 
 
