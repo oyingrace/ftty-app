@@ -271,6 +271,10 @@ auctionCount++;
 
 uint256 sellerProceeds = totalAmount - totalDeductions;
 
+ // Transfer NFT from seller to winner. Seller must have approved this contract.
+        IERC721(a.nft).safeTransferFrom(a.seller, winner, a.tokenId);
+
+
 
 
 
