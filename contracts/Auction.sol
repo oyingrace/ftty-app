@@ -293,6 +293,10 @@ uint256 sellerProceeds = totalAmount - totalDeductions;
         emit AuctionSettled(auctionId, winner, totalAmount);
     }
 
+    // -----------------------
+    // VIEW HELPERS
+    // -----------------------
+
 
 
 
