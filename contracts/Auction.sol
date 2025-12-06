@@ -230,6 +230,19 @@ auctionCount++;
      * @notice Settle auction after it ends. Transfers NFT to winner and funds to seller minus fees & royalties.
      * Anyone can call to finalize.
      */
+     function settleAuction(uint256 auctionId) external nonReentrant {
+        Auction storage a = auctions[auctionId];
+        require(a.seller != address(0), "Auction does not exist");
+        require(block.timestamp >= a.endTime, "Auction not ended");
+        require(!a.settled, "Already settled");
+
+        a.settled = true;
+
+        // If no bids, simply do nothing to funds; NFT stays with seller.
+        if (a.highestBidder == address(0)) {
+            emit AuctionSettled(auctionId, address(0), 0);
+            return;
+        }
 
 
 
