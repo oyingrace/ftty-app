@@ -297,7 +297,9 @@ uint256 sellerProceeds = totalAmount - totalDeductions;
     // VIEW HELPERS
     // -----------------------
 
-
+function getAuction(uint256 auctionId) external view returns (Auction memory) {
+        return auctions[auctionId];
+    }
 
 
 
