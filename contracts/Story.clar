@@ -37,3 +37,18 @@
             (sender-text (principal-to-string sender))
             (time block-header-timestamp)
          )
+         ;; Append new entry to story
+        (begin
+            (var-set story
+                (append (var-get story)
+                    (list { 
+                        word: word,
+                        sender: sender-text,
+                        timestamp: time
+                    })
+                )
+            )
+            (ok { added: word, by: sender-text, at: time })
+        )
+    )
+)
