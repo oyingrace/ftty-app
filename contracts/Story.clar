@@ -31,3 +31,9 @@
 ;; Users call this directly.
 ;; Uses Clarity 4 timestamp and ASCII principal conversion.
 ;; ------------------------------------------------------------
+(define-public (add-word (word (string-ascii 32)))
+    (let (
+            (sender tx-sender)
+            (sender-text (principal-to-string sender))
+            (time block-header-timestamp)
+         )
