@@ -28,7 +28,8 @@ FTTY is a decentralized marketplace that enables gamers to trade in-game assets 
   - [Reown AppKit](https://reown.com/appkit) (formerly WalletConnect) - Wallet connection
 - **Smart Contracts**: 
   - [OpenZeppelin Contracts](https://openzeppelin.com/contracts/) - Secure smart contract libraries
-  - Solidity ^0.8.19/^0.8.20
+  - Solidity ^0.8.19/^0.8.20 (Ethereum/EVM chains)
+  - Clarity 4 (Stacks blockchain)
 - **Data Fetching**: [TanStack Query](https://tanstack.com/query) (React Query)
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
 
@@ -101,7 +102,8 @@ ftty-app/
 │   ├── Bidding.sol        # Offer/bidding system for NFTs
 │   ├── GameItem.sol       # Game item NFT with updatable attributes
 │   ├── PlatformFee.sol    # Platform fee management contract
-│   └── Royalty.sol        # ERC-2981 royalty management contract
+│   ├── Royalty.sol        # ERC-2981 royalty management contract
+│   └── Story.clar         # Collaborative story contract (Clarity/Stacks)
 ├── public/                # Static assets
 │   ├── helmet.jpeg
 │   ├── staff.jpeg
@@ -343,7 +345,44 @@ An ERC-2981 royalty management contract:
   - `TokenRoyaltySet`: Emitted when token-specific royalty is set
   - `TokenRoyaltyReset`: Emitted when token royalty is reset
 
-All contracts use OpenZeppelin's battle-tested security libraries and follow best practices for secure smart contract development.
+All Solidity contracts use OpenZeppelin's battle-tested security libraries and follow best practices for secure smart contract development.
+
+### Story.clar (`OneWordStory`)
+
+A collaborative story contract built with Clarity 4 for the Stacks blockchain:
+
+- **Features**:
+  - Users can add one word at a time to build a collaborative story
+  - Each entry stores the word, sender (as ASCII text), and block timestamp
+  - Uses Clarity 4 features including `block-header-timestamp` and `to-utf8` for principal conversion
+  - Immutable story history stored on-chain
+  - Maximum of 200 entries per story
+
+- **Data Structure**:
+  - `story`: List of up to 200 entries, each containing:
+    - `word`: The word added (string-ascii, max 32 chars)
+    - `sender`: The principal address converted to ASCII text (string-ascii, max 256 chars)
+    - `timestamp`: Block timestamp when the word was added (uint)
+
+- **Key Functions**:
+  - `add-word (word (string-ascii 32))`: Add a single word to the story (public function)
+    - Returns: `{ added: word, by: sender-text, at: time }`
+  - `get-story`: Read-only function to retrieve the entire story
+    - Returns: Complete list of all story entries
+  - `story-length`: Read-only function to get the number of entries
+    - Returns: Length of the story list
+
+- **Helper Functions**:
+  - `principal-to-string (p principal)`: Converts a principal address to UTF-8 string (read-only)
+
+- **Technical Details**:
+  - Built with Clarity 4 syntax
+  - Uses `var-set` and `var-get` for state management
+  - Leverages Clarity 4's built-in `to-utf8` for principal-to-string conversion
+  - Uses `block-header-timestamp` for on-chain timestamps
+  - Story entries are appended to the list using `append` function
+
+This contract demonstrates collaborative on-chain storytelling where multiple users contribute to build a shared narrative, with each contribution permanently recorded on the Stacks blockchain.
 
 ## 🚧 Development Status
 
