@@ -25,3 +25,9 @@
 (define-read-only (principal-to-string (p principal))
     (to-utf8 p) ;; Clarity 4 built-in for conversion
 )
+
+;; ------------------------------------------------------------
+;; PUBLIC FUNCTION: Add a single word to the story
+;; Users call this directly.
+;; Uses Clarity 4 timestamp and ASCII principal conversion.
+;; ------------------------------------------------------------
