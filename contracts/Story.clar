@@ -17,3 +17,11 @@
 ;; initial empty list
     (list)
 )
+
+;; ------------------------------------------------------------
+;; HELPER: Convert principal → ASCII string
+;; New Clarity 4 feature allows converting values to readable text.
+;; ------------------------------------------------------------
+(define-read-only (principal-to-string (p principal))
+    (to-utf8 p) ;; Clarity 4 built-in for conversion
+)
