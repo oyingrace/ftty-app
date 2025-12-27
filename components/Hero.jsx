@@ -2,6 +2,9 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { FaRocket, FaGamepad, FaCoins } from 'react-icons/fa';
+import {  
+  AppKitConnectButton, 
+} from "@reown/appkit/react";
 
 const Hero = () => {
   const heroRef = useRef(null);
