@@ -16,7 +16,7 @@ if (!projectId || projectId === "YOUR_PROJECT_ID") {
 // Create appkit instance
 createAppKit({
   networks: [mainnet],
-  projectId: projectId || "YOUR_PROJECT_ID",
+  projectId: projectId || "5acef91d7967e48a748a4a68f1cb790c",
   enableWallets: true, // Keep wallet buttons enabled
   features: {
     connectMethodsOrder: ["wallet"], // Only show wallet buttons, no QR/social/email
