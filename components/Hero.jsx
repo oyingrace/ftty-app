@@ -67,7 +67,7 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
          
-        <appkit-wallet-button />
+        <appkit-wallet-button wallet="metamask" namespace='eip155' />
           
           <button
             onClick={() => window.open('/whitepaper.pdf', '_blank')}
