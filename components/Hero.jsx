@@ -66,8 +66,7 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <button className="bg-ftty-orange hover:bg-ftty-orange-light text-white px-8 py-4 rounded-full text-lg font-medium flex items-center justify-center gap-2 transform transition-all hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-ftty-orange/20">
-            <FaRocket />
-            Get Early Access
+          <AppKitConnectButton />
           </button>
           <button
             onClick={() => window.open('/whitepaper.pdf', '_blank')}
