@@ -67,7 +67,7 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
          
-          <AppKitConnectButton />
+        <appkit-wallet-button />
           
           <button
             onClick={() => window.open('/whitepaper.pdf', '_blank')}
