@@ -31,7 +31,11 @@ const Hero = () => {
   return (
     <section className="pt-32 pb-20 md:pt-40 md:pb-32 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 rounded-full bg-ftty-orange opacity-10 animate-pulse-slow -z-10"></div>
+      <img 
+        src="/pirate.png" 
+        alt="Pirate decoration" 
+        className="absolute top-20 left-10 w-20 h-20 object-contain opacity-10 animate-pulse-slow -z-10"
+      />
       <div className="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-ftty-orange opacity-10 animate-pulse-slow -z-10" style={{ animationDelay: '1s' }}></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-ftty-orange opacity-5 blur-3xl -z-10"></div>
 
