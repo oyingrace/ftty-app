@@ -2,10 +2,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import { FaRocket, FaGamepad, FaCoins } from 'react-icons/fa';
-import {  
-  AppKitConnectButton, 
-} from "@reown/appkit/react";
-import "@reown/appkit-wallet-button/react";
+import ConnectWalletBtn from './WalletBtn';
 
 const Hero = () => {
   const heroRef = useRef(null);
