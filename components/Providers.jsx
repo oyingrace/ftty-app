@@ -17,6 +17,6 @@ const appKit = createAppKit({
   projectId: process.env.NEXT_PUBLIC_REOWN_PROJECT_ID,
 });
 
-export default function AppKitProvider({ children }) {
+export default function Providers({ children }) {
   return <>{children}</>;
 }
