@@ -1,25 +1,22 @@
-'use client'
+"use client";
 
-import { WagmiProvider } from 'wagmi'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { AppKitProvider } from '@reown/appkit/react'
-import { wagmiConfig, projectId, appKitNetworks } from '../config/wagmi'
-import { useState } from 'react'
+import { createAppKit } from "@reown/appkit/react";
+import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
+import { mainnet } from "@reown/appkit/networks"; // or other networks
 
-export function Providers({ children }) {
-  const [queryClient] = useState(() => new QueryClient())
+// Create adapter
+const wagmiAdapter = new WagmiAdapter({
+  networks: [mainnet],
+  projectId: process.env.NEXT_PUBLIC_REOWN_PROJECT_ID,
+});
 
-  return (
-    <WagmiProvider config={wagmiConfig}>
-      <QueryClientProvider client={queryClient}>
-        <AppKitProvider
-          projectId={projectId}
-          networks={appKitNetworks}
-        >
-          {children}
-        </AppKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
-  )
+// Create appkit instance
+const appKit = createAppKit({
+  adapters: [wagmiAdapter],
+  networks: [mainnet],
+  projectId: process.env.NEXT_PUBLIC_REOWN_PROJECT_ID,
+});
+
+export default function AppKitProvider({ children }) {
+  return <>{children}</>;
 }
-
