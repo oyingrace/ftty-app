@@ -19,3 +19,4 @@ export default function ConnectWalletBtn() {
         onClick={() => open({ view: "Account" })}
         className="bg-ftty-orange hover:bg-ftty-orange-light text-white px-8 py-4 rounded-full text-lg font-medium flex items-center justify-center gap-2 transform transition-all hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-ftty-orange/20"
       >
+        <FaRocket />
