@@ -27,3 +27,4 @@ export default function ConnectWalletBtn() {
 
   return (
     <button
+      onClick={() => open({ view: "Connect" })}
