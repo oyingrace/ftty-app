@@ -9,3 +9,4 @@ export default function ConnectWalletBtn() {
   const { address, isConnected } = useAppKitAccount();
 
   const formatAddress = (addr) => {
+    if (!addr) return "";
