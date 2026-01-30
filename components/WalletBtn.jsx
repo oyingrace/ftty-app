@@ -22,3 +22,4 @@ export default function ConnectWalletBtn() {
         <FaRocket />
         {formatAddress(address)}
       </button>
+    );
