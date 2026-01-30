@@ -34,3 +34,4 @@ export default function ConnectWalletBtn() {
       Connect Wallet
     </button>
   );
+}
