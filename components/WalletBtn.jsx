@@ -16,3 +16,4 @@ export default function ConnectWalletBtn() {
   if (isConnected && address) {
     return (
       <button
+        onClick={() => open({ view: "Account" })}
