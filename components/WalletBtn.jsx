@@ -33,3 +33,4 @@ export default function ConnectWalletBtn() {
       <FaRocket />
       Connect Wallet
     </button>
+  );
