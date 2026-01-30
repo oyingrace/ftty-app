@@ -5,3 +5,4 @@ import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
 import { FaRocket } from "react-icons/fa";
 
 export default function ConnectWalletBtn() {
+  const { open } = useAppKit();
