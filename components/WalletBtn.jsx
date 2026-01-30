@@ -14,3 +14,4 @@ export default function ConnectWalletBtn() {
   };
 
   if (isConnected && address) {
+    return (
